@@ -1,13 +1,279 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* ======================
+   Global Reset
+====================== */
+* {
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  margin: 0;
+  font-family: "Inter", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: linear-gradient(180deg, #f8fafc, #eef2ff);
+  color: #1f2937;
+  line-height: 1.6;
+}
+
+/* ======================
+   Layout
+====================== */
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 16px;
+}
+
+/* ======================
+   Card
+====================== */
+.card {
+  background: linear-gradient(180deg, #ffffff, #f9fafb);
+  padding: 18px 20px;
+  margin-bottom: 18px;
+  border-radius: 14px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.12);
+}
+
+/* ======================
+   AI Card Variant
+====================== */
+.ai-card {
+  background: linear-gradient(135deg, #f5f3ff, #eef2ff, #ecfeff);
+  border-left: 6px solid #7c3aed;
+}
+
+/* ======================
+   Card Headings & Content
+====================== */
+.card h3 {
+  font-size: 18px;
+  font-weight: 700;
+  margin: 0 0 6px;
+  color: #111827;
+}
+
+.card .parent {
+  font-size: 13px;
+  color: #6b7280;
+  margin-bottom: 8px;
+}
+
+.card p {
+  color: #374151;
+}
+
+.card img {
+  max-width: 100%;
+  border-radius: 8px;
+  margin: 10px 0;
+}
+
+/* ======================
+   AI Badge
+====================== */
+.ai-badge {
+  background: linear-gradient(135deg, #7c3aed, #6366f1);
+  color: #ffffff;
+  font-size: 11px;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 999px;
+  margin-left: 8px;
+}
+
+/* ======================
+   Actions Row
+====================== */
+.actions {
+  margin-top: 14px;
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+/* ======================
+   Buttons (Base)
+====================== */
+.actions button {
+  border: none;
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+/* ======================
+   Normal Button
+====================== */
+.actions button:not(.ai-btn):not(.delete-btn) {
+  background: linear-gradient(135deg, #3b82f6, #2563eb);
+  color: #ffffff;
+}
+
+.actions button:not(.ai-btn):not(.delete-btn):hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(37, 99, 235, 0.4);
+}
+.add-btn {
+  background: linear-gradient(135deg, #22c55e, #06b6d4);
+  color: #ffffff;
+  border: none;
+  padding: 10px 18px;
+  border-radius: 12px;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  margin-bottom: 18px;
+  box-shadow: 0 10px 25px rgba(6, 182, 212, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.add-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 16px 35px rgba(6, 182, 212, 0.5);
+}
+
+/* ======================
+   AI Button (Read Only)
+====================== */
+.ai-btn {
+  background: linear-gradient(135deg, #8b5cf6, #6366f1, #06b6d4);
+  color: #ffffff;
+  cursor: not-allowed;
+  opacity: 0.85;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.ai-btn:hover {
+  transform: none;
+  box-shadow: 0 6px 20px rgba(139, 92, 246, 0.45);
+}
+
+.ai-btn:disabled {
+  opacity: 0.7;
+}
+
+/* ======================
+   Delete Button
+====================== */
+.delete-btn {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: #ffffff;
+}
+
+.delete-btn:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 20px rgba(220, 38, 38, 0.45);
+}
+
+/* ======================
+   Forms
+====================== */
+.form input,
+.form textarea {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 12px;
+  border-radius: 10px;
+  border: 1px solid #d1d5db;
+  font-size: 14px;
+}
+
+.form input:focus,
+.form textarea:focus {
+  outline: none;
+  border-color: #6366f1;
+  box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.2);
+}
+
+/* ======================
+   Responsive
+====================== */
+@media (max-width: 768px) {
+  .container {
+    padding: 14px;
+  }
+
+  .card {
+    padding: 16px;
+  }
+
+  .actions {
+    gap: 8px;
+  }
+
+  .actions button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .card h3 {
+    font-size: 16px;
+  }
+
+  .ai-badge {
+    font-size: 10px;
+  }
+}
+/* index.css */
+
+.textarea-base {
+  width: 100%;
+  border: 1px solid #d1d5db; /* gray-300 */
+  padding: 0.5rem;
+  border-radius: 0.375rem;
+  margin-top: 0.25rem;
+}
+
+.textarea-base:focus {
+  outline: none;
+}
+
+.textarea-error {
+  border-color: #ef4444; /* red-500 */
+}
+
+.error-text {
+  color: #ef4444;
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+}
+/* Primary button */
+.btn-primary {
+  background-color: #3b82f6; /* blue-500 */
+  color: #ffffff;
+  padding: 0.5rem 1rem;
+  border-radius: 0.375rem;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.2s ease, transform 0.1s ease;
+}
+
+.btn-primary:hover {
+  background-color: #2563eb; /* blue-600 */
+}
+
+.btn-primary:active {
+  transform: scale(0.98);
+}
+
+.btn-primary:disabled {
+  background-color: #93c5fd; /* blue-300 */
+  cursor: not-allowed;
+}
+.text-red {
+color:red;
 }
